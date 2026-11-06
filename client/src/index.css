@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+  --color-ink-950: #0b0d12;
+  --color-ink-900: #11141b;
+  --color-ink-850: #161a23;
+  --color-ink-800: #1c212c;
+  --color-ink-700: #2a303d;
+  --color-brand-400: #ff6b6b;
+  --color-brand-500: #f04848;
+  --color-brand-600: #d63434;
+}
+
+html, body, #root { height: 100%; }
+body { @apply bg-ink-950 text-slate-200 antialiased; color-scheme: dark; }
+
+.prose-coach { @apply text-[14px] leading-relaxed text-slate-300; }
+.prose-coach p { @apply my-2; }
+.prose-coach strong { @apply text-slate-100 font-semibold; }
+.prose-coach ul { @apply list-disc pl-5 my-2 space-y-1; }
+.prose-coach ol { @apply list-decimal pl-5 my-2 space-y-1; }
+.prose-coach code { @apply font-mono text-[12.5px] bg-ink-800 text-brand-400 px-1.5 py-0.5 rounded; }
+.prose-coach pre { @apply bg-ink-950 border border-ink-700 rounded-lg p-3 my-3 overflow-x-auto; }
+.prose-coach pre code { @apply bg-transparent text-slate-300 p-0; }
+
+.scroll-thin { scrollbar-width: thin; scrollbar-color: #2a303d transparent; }
+
+[data-separator] { @apply bg-ink-700 transition-colors; }
+[data-separator]:hover, [data-separator][data-separator-state="drag"] { @apply bg-brand-500; }
