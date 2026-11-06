@@ -25,7 +25,7 @@ const features = [
 ];
 
 const chat = [
-  { from: "student", text: "my two_sum returns None for [3, 3]" },
+  { from: "student", text: "my two_sum returns [0, 0] for [3, 3]" },
   { from: "coach", text: "Good catch testing duplicates! On line 4 you store `seen[n] = i` *before* checking for the complement. What does `seen` contain when you reach the second 3?" },
   { from: "student", text: "oh, it finds itself… I should check first" },
   { from: "coach", text: "Exactly. Try swapping those two lines and run the tests again." },

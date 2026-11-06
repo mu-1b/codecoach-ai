@@ -136,7 +136,7 @@ export default function ProblemPanel({ challenge, tab, setTab, refreshKey }) {
             <h3 className="mb-2 mt-6 text-xs font-semibold uppercase tracking-wide text-slate-500">Test cases</h3>
             <div className="space-y-1.5 font-mono text-[12.5px]">
               {examples.map((t, i) => (
-                <div key={i} className="rounded-md bg-ink-950 px-3 py-2 text-slate-400">
+                <div key={i} className="break-all rounded-md bg-ink-950 px-3 py-2 text-slate-400">
                   <span className="text-slate-300">{t.args.map((a) => JSON.stringify(a)).join(", ")}</span>
                   <span className="mx-2 text-slate-600">→</span>
                   <span className="text-emerald-300">{JSON.stringify(t.expected)}</span>

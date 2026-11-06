@@ -21,13 +21,13 @@ export async function seedDemoData() {
   const activity = [];
   for (const [i, name] of STUDENTS.entries()) {
     const user = await User.create({ name, handle: name.toLowerCase().replace(/\s+/g, "-") });
-    const reach = 3 + Math.floor(rand() * 5) - (i % 2);
+    const reach = 5 + Math.floor(rand() * 4);
     for (const c of challenges.slice(0, reach)) {
-      const difficulty = { beginner: 0.75, intermediate: 0.5, hard: 0.3 }[c.difficulty];
+      const passRate = { beginner: 0.9, intermediate: 0.7, hard: 0.4 }[c.difficulty];
       const attempts = 1 + Math.floor(rand() * 4);
       let t = Date.now() - Math.floor(rand() * 6 * DAY);
       for (let a = 0; a < attempts; a++) {
-        const passed = a === attempts - 1 ? rand() < difficulty + 0.2 : false;
+        const passed = a === attempts - 1 ? rand() < passRate : false;
         const total = c.tests.length;
         submissions.push({
           user: user._id,

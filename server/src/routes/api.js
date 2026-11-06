@@ -39,7 +39,7 @@ const schemas = {
       .array(z.object({ role: z.enum(["user", "assistant"]), content: z.string().min(1).max(2000) }))
       .min(1)
       .max(30)
-      .refine((m) => m[m.length - 1].role === "user", "Last message must be from the user"),
+      .refine((m) => m.at(-1)?.role === "user", "Last message must be from the user"),
   }),
 };
 
@@ -79,7 +79,7 @@ router.post("/session", validate(schemas.session), async (req, res) => {
   const user = await User.findOneAndUpdate(
     { handle },
     { $setOnInsert: { name: req.body.name, handle, role: req.body.role } },
-    { upsert: true, new: true },
+    { upsert: true, returnDocument: "after" },
   );
   res.json({ id: user.id, name: user.name, role: user.role });
 });

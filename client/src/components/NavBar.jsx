@@ -19,7 +19,7 @@ export default function NavBar({ children }) {
   return (
     <header className="flex h-14 shrink-0 items-center gap-4 border-b border-ink-700/70 bg-ink-950/80 px-4 backdrop-blur sm:px-6">
       <Logo />
-      <nav className="flex items-center gap-1">
+      <nav className={`items-center gap-1 ${children ? "hidden lg:flex" : "flex"}`}>
         <NavLink to="/challenges" end className={linkClass}>Challenges</NavLink>
         <NavLink to="/dashboard" className={linkClass}>Progress</NavLink>
         {user?.role === "instructor" && <NavLink to="/instructor" className={linkClass}>Instructor</NavLink>}

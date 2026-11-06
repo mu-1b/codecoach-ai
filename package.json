@@ -1,6 +1,7 @@
 {
   "name": "codecoach-ai",
   "private": true,
+  "type": "module",
   "version": "0.1.0",
   "description": "AI programming tutor built at BigRed//Hacks (September 2025)",
   "workspaces": ["server", "client"],
